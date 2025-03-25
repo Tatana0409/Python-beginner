@@ -1,4 +1,2 @@
 # Python-beginner
-Repo for Python course
-
-Test
+Repo for Python course.
