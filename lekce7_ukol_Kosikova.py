@@ -8,9 +8,6 @@ def is_name_valid(name: str) -> bool:
     result = True if name_length >= 4 else False
     return result
 
-#is_name_valid(name)
-
-
 def create_user (name:str, age:int) -> dict:
 
     if is_adult(age) and is_name_valid(name):
@@ -24,15 +21,18 @@ def create_user (name:str, age:int) -> dict:
 
     else: user = {
             'success': False,
-            'error': 'Error message: Wrong Name or age!'
+            'error': 'Error message'
         }
 
     return user
 
-def print_user_info(user: dict) -> None:
-    print('Username:' + user['user']['username'])
+def print_user_info(user: dict)-> None:
+    if user['success']:
+     print('Username:' + user['user']['username'])
+    else: print (user['error'] + ': Wrong Name or age!')
 
-# creation of users
+
+# users creation
 users = []
 
 user1 = create_user('loser5', 34)
@@ -54,8 +54,9 @@ users.append(user5)
 # nbr_users = len(users)
 # print(nbr_users)
 
-for x in users:
-     if x ['success']:
-         print_user_info(x)
+for user_info in users:
+    print_user_info(user_info)
+
+
 
 
